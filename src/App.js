@@ -33,16 +33,20 @@ class App extends React.Component {
     return (
       <AppStyled className="App">
         <Accordion>
-            {data.map( city => {
+            {data.map( country => {
               return(
-                <AccordionItem>
+                <AccordionItem key={country.id}>
                     <AccordionItemHeading>
                         <AccordionItemButton>
-                            {city.name}
+                            {country.name}
                         </AccordionItemButton>
                     </AccordionItemHeading>
                     <AccordionItemPanel>
-                        {/* {data.map( )} */}
+                      <ul>
+                        {country.originUpperLevels.map((originCountry, i) => {
+                          return <li key={i}>{originCountry}</li>
+                        })}
+                      </ul>
                     </AccordionItemPanel>
                 </AccordionItem>
               )
