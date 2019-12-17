@@ -5,11 +5,21 @@ import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, Ac
 
 
 const AppStyled = styled.div`
-  text-align: center;
+  display: flex;
 
-  .countries-list {
-    list-style-type: none;
+  .accordion {
+    max-width: 220px;
   }
+
+  .accordion__button {
+    width: initial;
+  }
+
+  .content {
+    flex: 1;
+    text-align: center;
+  }
+
 `
 
 class App extends React.Component {
@@ -22,17 +32,15 @@ class App extends React.Component {
     fetch('http://api.homeis.com/v1/communities')
       .then(res => res.json())
       .then(res => {
-        console.log(res.data);
         this.setState({data: res.data})
       });
   }
 
   render() {
     const { data } = this.state;
-    console.log(data);
     return (
       <AppStyled className="App">
-        <Accordion>
+        <Accordion allowZeroExpanded={true}>
             {data.map( country => {
               return(
                 <AccordionItem key={country.id}>
@@ -52,6 +60,9 @@ class App extends React.Component {
               )
             })}
         </Accordion>
+        <div className="content">
+          <h1>Homeis Communities</h1>
+        </div>
       </AppStyled>
     );
   }  
