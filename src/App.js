@@ -2,7 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import logo from './img/logo.png'
-import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from 'react-accessible-accordion';
+import { 
+  Accordion, 
+  AccordionItem, 
+  AccordionItemHeading, 
+  AccordionItemButton, 
+  AccordionItemPanel 
+} from 'react-accessible-accordion';
 
 
 const AppStyled = styled.div`
