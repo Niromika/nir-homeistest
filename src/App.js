@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import 'react-accessible-accordion/dist/fancy-example.css';
+import { Accordion, AccordionItem, AccordionItemHeading, AccordionItemButton, AccordionItemPanel } from 'react-accessible-accordion';
+
 
 const AppStyled = styled.div`
   text-align: center;
@@ -29,7 +32,22 @@ class App extends React.Component {
     console.log(data);
     return (
       <AppStyled className="App">
-        
+        <Accordion>
+            {data.map( city => {
+              return(
+                <AccordionItem>
+                    <AccordionItemHeading>
+                        <AccordionItemButton>
+                            {city.name}
+                        </AccordionItemButton>
+                    </AccordionItemHeading>
+                    <AccordionItemPanel>
+                        {/* {data.map( )} */}
+                    </AccordionItemPanel>
+                </AccordionItem>
+              )
+            })}
+        </Accordion>
       </AppStyled>
     );
   }  
