@@ -61,6 +61,12 @@ const AppStyled = styled.div`
       margin: 40px;
     }
   }
+
+  @media(max-width: 900px) {
+    .logo {
+      display: none;
+    }
+  }
 `
 
 class App extends React.Component {
@@ -92,9 +98,12 @@ class App extends React.Component {
                     </AccordionItemHeading>
                     <AccordionItemPanel>
                       <ul className="origin-list">
-                        {country.originUpperLevels.map((originCountry, i) => {
-                          return <li className="origin-item" key={i}>{originCountry}</li>
-                        })}
+                        {country.originUpperLevels.length > 0 ? 
+                          country.originUpperLevels.map((originCountry, i) => {
+                            return <li className="origin-item" key={i}>{originCountry}</li>
+                          })  : 
+                          <div>Has no origins</div>
+                        }
                       </ul>
                     </AccordionItemPanel>
                 </AccordionItem>
